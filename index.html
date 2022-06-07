@@ -31,7 +31,7 @@
                 </div>
             </form>
                 <div class="btn">
-                    <button class="inp-btn start"><img src="./icon-start.png" alt="" onclick="changeColor()">START</button>
+                    <button class="inp-btn start"><img src="./icon-start.png" alt="" >START</button>
                     <button class="inp-btn reset"><img src="./shape.png" alt="">RESET</button> 
                 </div>
         </div>
@@ -41,10 +41,18 @@
         <img src="./WENIV Corp..png" alt="">
     </footer>
     <script>
+        const time = document.querySelectorAll(".timer span");
         const start = document.querySelector(".start");
-        function changeColor() {
-            start.backgroundcolor="#5180FF";
-        }
+        const reset = document.querySelector(".reset");
+        console.log(start);
+        time.forEach(function(item) {
+            item.addEventListener('click', (event) => {
+                start.style.backgroundColor="#5180FF"; 
+                reset.style.backgroundColor="#FB7099"; 
+                
+            })
+        })
+
     </script>
 </body>
 </html>
