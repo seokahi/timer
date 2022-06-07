@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>타이머</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="ir">위니브</h1>
+        <img class="logo" src="./weniv-logo.png" alt="위니브로고">
+    </header>
+    <main class="main">
+        <div class="container">
+            <h2 class="tit-timer">TIMER</h2>
+            <form action="" class="block-time">
+                <div class="timer">
+                    <strong>HRS</strong>
+                    <span>00</span>
+                </div>
+                <div class="timer">
+                    <strong>MIN</strong>
+                    <span>00</span>
+                </div>
+                <div class="timer">
+                    <strong>SEC</strong>
+                    <span>00</span>
+                </div>
+            </form>
+                <div class="btn">
+                    <button class="inp-btn start"><img src="./icon-start.png" alt="" onclick="changeColor()">START</button>
+                    <button class="inp-btn reset"><img src="./shape.png" alt="">RESET</button> 
+                </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <h1 class="ir">위니브로고</h1>
+        <img src="./WENIV Corp..png" alt="">
+    </footer>
+    <script>
+        const start = document.querySelector(".start");
+        function changeColor() {
+            start.backgroundcolor="#5180FF";
+        }
+    </script>
+</body>
+</html>

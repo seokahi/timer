@@ -1,0 +1,120 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+html,body,h1,h2,p,span {
+    margin: 0;
+    padding:0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.ir {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+body {
+    background: radial-gradient(96.74% 276.79% at 3.59% 5.28%, #F0F4FF 0%, #A5B6EE 100%) no-repeat/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    height:100vh;
+}
+
+.header {
+    text-align:center;
+    margin:72px 0 60px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-bottom:60px;
+}
+
+.container {
+    background: linear-gradient(144.07deg, #5572BB 2.13%, #374B7C 102.97%);
+    padding:48px 44px 40px;
+    border-radius: 16px;
+}
+
+.tit-timer {
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color:white;
+}
+
+.tit-timer::after {
+    display:block;
+    content:"";
+    width: 100%;
+    height: 1px;
+    margin:23px 0 33px;
+    background: #3D538A;
+}
+
+.block-time {
+    display: flex;
+    gap:22px;
+    margin-bottom: 40px;
+}
+.timer{
+    display:flex;
+    flex-direction:column;
+}
+
+.timer strong {
+    font-family: Pretendard;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #A5B6EE;
+}
+
+.timer span{
+    margin-top:4px;
+    border: 1px solid #354971;
+    border-radius: 4px;
+    background: linear-gradient(314.28deg, #304577 0%, #4C65A0 83%);
+    font-family: Pretendard;
+    font-size: 40px;
+    font-weight: 700;
+    color:white;
+    padding:16px 14px 16px 13px;
+}
+
+.btn {
+    margin:0 auto;
+    text-align: center;
+}
+
+.inp-btn {
+    background-color: #324577;
+    border-radius:50px;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-weight: 700;
+    color: #617199;
+    border:1px solid #324577;
+    padding:16px 23px 15px;
+}
+
+.inp-btn:first-child {
+    margin-right:12px;
+}
+.inp-btn img {
+    margin-right:6px;
+    vertical-align: top;
+}
+
+.footer {
+    text-align:center;
+}
