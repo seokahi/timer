@@ -67,7 +67,9 @@ body {
 .timer{
     display:flex;
     flex-direction:column;
+    position:relative;
 }
+
 
 .timer strong {
     font-family: Pretendard;
@@ -91,6 +93,27 @@ body {
     padding:16px 14px 16px 13px;
 }
 
+.timer span::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: calc(60%);
+    left:0.5%;
+    width: 14px;
+    height: 1px;
+    background-color: #354971;
+}
+
+.timer span::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: calc(60%);
+    right:-0.5%;
+    width: 14px;
+    height: 1px;
+    background-color: #354971;
+}
 .btn {
     margin:0 auto;
     text-align: center;
@@ -115,6 +138,17 @@ body {
     vertical-align: top;
 }
 
+.changeStartColor {
+    background-color:#5180FF;
+    border:1px solid #5180FF;
+    color:white;
+}
+
+.changeResetColor{
+    background-color:#FB7099; 
+    border:1px solid #FB7099;
+    color: white;
+}
 .footer {
     text-align:center;
 }

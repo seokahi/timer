@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <h1 class="ir">위니브</h1>
-        <img class="logo" src="./weniv-logo.png" alt="위니브로고">
+        <img class="logo" src="./img/weniv-logo.png" alt="위니브로고">
     </header>
     <main class="main">
         <div class="container">
@@ -27,32 +27,80 @@
                 </div>
                 <div class="timer">
                     <strong>SEC</strong>
-                    <span>00</span>
+                    <span class="sec">00</span>
                 </div>
             </form>
                 <div class="btn">
-                    <button class="inp-btn start"><img src="./icon-start.png" alt="" >START</button>
-                    <button class="inp-btn reset"><img src="./shape.png" alt="">RESET</button> 
+                    <button class="inp-btn start"><img src="./img/icon-start.png" alt="" >START</button>
+                    <button class="inp-btn reset"><img src="./img/shape.png" alt="">RESET</button> 
                 </div>
         </div>
     </main>
     <footer class="footer">
         <h1 class="ir">위니브로고</h1>
-        <img src="./WENIV Corp..png" alt="">
+        <img src="./img/WENIV Corp..png" alt="">
     </footer>
     <script>
-        const time = document.querySelectorAll(".timer span");
+        const time = document.querySelector(".timer .sec");
         const start = document.querySelector(".start");
         const reset = document.querySelector(".reset");
-        console.log(start);
-        time.forEach(function(item) {
-            item.addEventListener('click', (event) => {
-                start.style.backgroundColor="#5180FF"; 
-                reset.style.backgroundColor="#FB7099"; 
-                
-            })
-        })
+        let timerId = null;
+        function timeSetting(){
+            if(time.textContent== "00") {
+                time.innerHTML="10";
+            } else if(time.textContent== "10") {
+                time.innerHTML="20";
+            }
+            else if(time.textContent== "20") {
+                time.innerHTML="30";
+            }
+            else if(time.textContent== "30") {
+                time.innerHTML="40";
+            }
+            else if(time.textContent== "40") {
+                time.innerHTML="50";
+            }
+            else if(time.textContent== "50") {
+                time.innerHTML="60";
+            }
+            else {
+                time.innerHTML="00";
+            }
+        }
 
+        function PrintTime() {
+            let Time = parseInt(time.textContent);
+            console.log(Time);
+            if(Time === 0) {
+                time.textContent="00";
+                alert("Finish");
+                clearInterval(1);
+            }
+            else {
+                if(Time <=10) {
+                    Time -= 1
+                    time.textContent="0"+Time; 
+                }
+                else {
+                    Time -= 1
+                    time.textContent=""+Time;
+                }
+            }
+        }
+        time.addEventListener('click', (event) => {
+            start.classList.add("changeStartColor");
+            reset.classList.add("changeResetColor");
+            timeSetting();
+            reset.addEventListener('click',(event) => {
+                start.classList.remove("changeStartColor");
+                reset.classList.remove("changeResetColor");
+                time.innerHTML="00";
+            })
+            start.addEventListener('click' ,(event) => {
+                let timerId = setInterval(PrintTime, 1000);
+        })
+        
+    })
     </script>
 </body>
 </html>
