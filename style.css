@@ -40,6 +40,7 @@ body {
     background: linear-gradient(144.07deg, #5572BB 2.13%, #374B7C 102.97%);
     padding:48px 44px 40px;
     border-radius: 16px;
+    box-sizing: border-box;
 }
 
 .tit-timer {
@@ -64,6 +65,7 @@ body {
     gap:22px;
     margin-bottom: 40px;
 }
+
 .timer{
     display:flex;
     flex-direction:column;
@@ -91,6 +93,7 @@ body {
     font-weight: 700;
     color:white;
     padding:16px 14px 16px 13px;
+    box-sizing: border-box;
 }
 
 .timer span::before {
@@ -128,6 +131,7 @@ body {
     color: #617199;
     border:1px solid #324577;
     padding:16px 23px 15px;
+    box-sizing: border-box;
 }
 
 .inp-btn:first-child {
@@ -144,10 +148,16 @@ body {
     color:white;
 }
 
-.changeResetColor{
+.changeResetColor {
     background-color:#FB7099; 
     border:1px solid #FB7099;
     color: white;
+}
+
+.changePauseColor {
+    background-color:#15C2B8;
+    border:1px solid #15C2B8;
+    color:white;
 }
 .footer {
     text-align:center;
