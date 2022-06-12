@@ -76,9 +76,9 @@
             if(Time === 0) {
                 clearInterval(timerId);
                 time.textContent="00";
+                text_start.innerText="START";
                 start.childNodes[0].src="./img/start_gray.png";
                 reset.childNodes[0].src="./img/reset_gray.png";
-                text_start.innerText="START";
                 start.classList.remove("changeStartColor");
                 reset.classList.remove("changeResetColor");
                 start.classList.remove("changePauseColor");
@@ -104,6 +104,8 @@
                 start.classList.remove("changeStartColor");
                 reset.classList.remove("changeResetColor");
                 start.classList.remove("changePauseColor");
+                start.childNodes[0].src="./img/start_gray.png";
+                reset.childNodes[0].src="./img/reset_gray.png";
                 time.textContent = "00";
         })
         start.addEventListener('click' ,(event) => {
