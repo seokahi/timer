@@ -115,12 +115,20 @@
                 sec.textContent = "00";
         })
         pause.addEventListener('click',() => {
-            console.log("timerId",timerId);
+            console.log(pause);
             if(flag == 0 ) {
                 timerId.map(i => clearInterval(i));
+                pause.classList.remove("changePauseColor");
+                pause.classList.add("changeStartColor");
+                pause.childNodes[1].textContent="START";
+                pause.childNodes[0].src = "./img/start_white.png";
+
             }
             if(flag == 1) {
-                console.log("if안",flag);
+                pause.classList.remove("changeStartColor");
+                pause.classList.add("changePauseColor");
+                pause.childNodes[1].textContent="PAUSE";
+                pause.childNodes[0].src = "./img/pause.png";
                 timerId.push(setInterval(PrintTime, 1000));
             }
             
