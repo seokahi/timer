@@ -41,80 +41,102 @@
         <img src="./img/WENIV Corp..png" alt="">
     </footer>
     <script>
-        const time = document.querySelector(".timer .sec");
+        const btn = document.querySelector(".btn");
+        const sec = document.querySelector(".sec");
         const start = document.querySelector(".start");
         const reset = document.querySelector(".reset");
         const text_start = document.querySelector(".start span");
         const text_reset = document.querySelector(".reset span");
-        let timerId = null;
-        function timeSetting(){
-            if(time.textContent== "00") {
-                time.innerHTML="10";
-            } else if(time.textContent== "10") {
-                time.innerHTML="20";
-            }
-            else if(time.textContent== "20") {
-                time.innerHTML="30";
-            }
-            else if(time.textContent== "30") {
-                time.innerHTML="40";
-            }
-            else if(time.textContent== "40") {
-                time.innerHTML="50";
-            }
-            else if(time.textContent== "50") {
-                time.innerHTML="60";
-            }
-            else {
-                time.innerHTML="00";
-            }
 
+        /* pause 요소 생성 */
+        const pause = document.createElement("button");
+        const pause_img = document.createElement("img");
+        pause_img.src = "./img/pause.png";
+        const span = document.createElement("span");
+        span.innerText = "PAUSE";
+        pause.appendChild(pause_img);
+        pause.appendChild(span);
+        pause.setAttribute("class","inp-btn");
+        console.log(pause);
+        /* pause 요소 생성 */
+        let timerId = [];
+        let flag = 0;
+        function timeSetting(){
+            if(sec.textContent== "00") {
+                sec.innerHTML="10";
+            }
         }
 
-        const PrintTime = () => {
-            let Time = parseInt(time.textContent);
+        function PrintTime() {
+            let Time = parseInt(sec.textContent);
+            console.log(Time);
             if(Time === 0) {
-                clearInterval(timerId);
-                time.textContent="00";
-                text_start.innerText="START";
+                timerId.map(i => clearInterval(i));
+                sec.textContent="00";
+                pause.remove();
+                btn.prepend(start);
                 start.childNodes[0].src="./img/start_gray.png";
                 reset.childNodes[0].src="./img/reset_gray.png";
                 start.classList.remove("changeStartColor");
                 reset.classList.remove("changeResetColor");
-                start.classList.remove("changePauseColor");
+                pause.classList.remove("changePauseColor");
                 alert("🙉 타이머가 끝났어용 !!! 🙉");
             }
             else {
-                if(Time-1 < 10) {
-                    time.textContent="0"+(Time-1); 
-                }
-                else {
-                    time.textContent=""+(Time-1); 
-                }
-                }            
-            }    
-        time.addEventListener('click', (event) => {
+                sec.textContent="0"+(Time-1); 
+            }            
+        }    
+        
+        sec.addEventListener('click', (event) => {
+            timeSetting();
             start.classList.add("changeStartColor");
             reset.classList.add("changeResetColor");
             start.childNodes[0].src = "./img/start_white.png";
             reset.childNodes[0].src = "./img/reset_white.png";
-            timeSetting();
-        })
-        reset.addEventListener('click',(event) => {
-                start.classList.remove("changeStartColor");
-                reset.classList.remove("changeResetColor");
-                start.classList.remove("changePauseColor");
-                start.childNodes[0].src="./img/start_gray.png";
-                reset.childNodes[0].src="./img/reset_gray.png";
-                time.textContent = "00";
         })
         start.addEventListener('click' ,(event) => {
+            console.log("gkdk");
             start.classList.remove("changeStartColor");
-            start.classList.add("changePauseColor");
-            timerId = setInterval(PrintTime, 1000);
-            text_start.innerText="PAUSE"
-            start.childNodes[0].src = "./img/pause.png";
+            start.remove();
+            btn.prepend(pause);
+
+            pause.classList.add("changePauseColor");
+            timerId.push(setInterval(PrintTime, 1000));
         })
+        reset.addEventListener('click',(event) => {
+                pause.classList.remove("changePauseColor");
+                reset.classList.remove("changeResetColor");
+                start.classList.remove("changeStartColor");
+                pause.remove();
+                btn.prepend(start);
+                start.childNodes[0].src="./img/start_gray.png";
+                reset.childNodes[0].src="./img/reset_gray.png";
+                sec.textContent = "00";
+        })
+        pause.addEventListener('click',() => {
+            console.log("timerId",timerId);
+            if(flag == 0 ) {
+                timerId.map(i => clearInterval(i));
+            }
+            if(flag == 1) {
+                console.log("if안",flag);
+                timerId.push(setInterval(PrintTime, 1000));
+            }
+            
+            if(flag == 0) {
+                flag = 1;
+            }
+            else {
+                flag = 0;
+            }
+        })
+        // start.addEventListener('click' ,(event) => {
+        //     start.classList.remove("changeStartColor");
+        //     start.classList.add("changePauseColor");
+        //     timerId = setInterval(PrintTime, 1000);
+        //     text_start.innerText="PAUSE"
+        //     start.childNodes[0].src = "./img/pause.png";
+        // })
         //reset 과 start를 time.addEventListener에서 빼내니까 성공 => 이벤트리스너에 중복등록되는듯
     </script>
 </body>
