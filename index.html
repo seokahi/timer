@@ -111,6 +111,7 @@
                 btn.prepend(start);
                 start.childNodes[0].src="./img/start_gray.png";
                 reset.childNodes[0].src="./img/reset_gray.png";
+                timerId.map(i => clearInterval(i));
                 sec.textContent = "00";
         })
         pause.addEventListener('click',() => {
